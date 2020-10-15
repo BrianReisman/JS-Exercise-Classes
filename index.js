@@ -41,24 +41,57 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age){
+    this.name = name,
+    this.age = age,
+    this.stomach = [];
+  }
+  eat(someFood){
+    if(this.stomach.length < 11)
+    this.stomach = this.stomach + someFood;
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
 
 }
 
 /*
-  TASK 2
-    - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
-    - All instances built with Car:
-        + should initialize with a `tank` at 0
-        + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
-    - Give cars ability to `.drive(distance)`. The distance driven:
-        + Should cause the `odometer` to go up.
-        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
-    - A car which runs out of `fuel` while driving can't drive any more distance:
-        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+x  TASK 2
+x    - Write a Car class whose constructor initializes `model` and `milesPerGallon` from xarguments.
+x    - All instances built with Car:
+x        + should initialize with a `tank` at 0
+x        + should initialize with an `odometer` at 0
+x    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to x`tank`.
+x    - Give cars ability to `.drive(distance)`. The distance driven:
+x        + Should cause the `odometer` to go up.
+x        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
+x    - A car which runs out of `fuel` while driving can't drive any more distance:
+x        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
 class Car {
+  constructor(model, milesPerGallon){ //data
+    this.tank = 0;
+    this.odometer = 0;
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+  }  //functions below here
+  fill(gallons){
+    this.tank = this.tank + gallons;
+  }
+  drive(distance){
+    this.odometer += distance; // could also be written this.odometer = this.odometer + distance;
+    this.tank -= distance; //same option as above
+    if(this.tank < distance){ //try next <=
+    }
+    if(this.tank = 0){
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
 
 }
 
@@ -75,6 +108,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(obj){ //{name: name, age: age, location: location}
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 
 }
 
@@ -93,7 +134,9 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
-
+  constructor(){
+    super()
+  }
 }
 
 /*
